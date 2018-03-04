@@ -45,14 +45,26 @@ a.product-cta {
     font-size: 2rem;
     outline: none;
 }
+#take-again {
+    border-radius: 50%;
+    padding: 0.5rem 0.8rem;
+    background-color: lightgreen;
+    color: white;
+    margin: 1rem 0;
+    font-size: 2rem;
+    outline: none;
+}
 
 .button {
 margin: 0 auto;
 width: 0;
 }
- #captureButton:hover, .product-cta:hover {
+ #captureButton:hover,#take-again:hover, .product-cta:hover {
     outline: none;
     opacity: 0.7;
+}
+#take-again {
+    display: none;
 }
 .my-collection img {
     max-width: 7rem;
@@ -99,6 +111,12 @@ width: 0;
         position: relative;
     }
     #captureButton {
+        position: relative;
+        top:30%;
+        right:25%;
+        z-index: 10;
+    }
+    #take-again {
         position: relative;
         top:30%;
         right:25%;

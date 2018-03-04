@@ -13,10 +13,9 @@ class ProductFinder extends Component {
     }
 
     this.handleCaptureClick = this.handleCaptureClick.bind(this);
+    this.handleOutputClick = this.handleOutputClick.bind(this);
     this.captureImage = this.captureImage.bind(this);
     this.clearPhoto = this.clearPhoto.bind(this);
-    this.handleNewLetter = this.handleNewLetter.bind(this);
-
   }
 
   componentDidMount() {
@@ -67,6 +66,8 @@ class ProductFinder extends Component {
       .then(bestMatch => this.setState({
         bestMatch
     }))
+    document.getElementById("webcam").style.display = "none";
+
   }
 
   clearPhoto() {
@@ -84,11 +85,18 @@ class ProductFinder extends Component {
 
   handleCaptureClick(event) {
     event.preventDefault();
-    setTimeout(this.captureImage, 3000);
-  }
+    setTimeout(this.captureImage, 10);
+    document.getElementById("webcam").style.display = "block";
+    document.getElementById("take-again").style.display = "block";
+    document.getElementById("captureButton").style.display = "none";
+    document.getElementById("photo").style.display = "block";
 
-  handleNewLetter() {
-    this.setState({ randomLetter: ['A', 'C', 'V'][Math.floor(Math.random() * 3)] });
+  }
+  handleOutputClick(event) {
+    document.getElementById("webcam").style.display = "block";
+    document.getElementById("photo").style.display = "none";
+    document.getElementById("captureButton").style.display = "block";
+    document.getElementById("take-again").style.display = "none";
   }
 
   render() {
@@ -98,18 +106,13 @@ class ProductFinder extends Component {
         <WebcamStream handleCaptureClick={this.handleCaptureClick} />
         <canvas id="canvas" hidden></canvas>
         <div className="output">
+          <button id="take-again" onClick={this.handleOutputClick}>📷</button>
           <img id="photo" alt="Your photo" width="400" />
         </div>
         <h2> {this.state.bestMatch}</h2>
       </div>
     )
   }
-}
-
-function onClick(cta) {
-    cta = document.getElementById("captureButton");
-    video.parentNode.replaceChild(photo, video);
-    return;
 }
 
 function getCamDimensions() {
