@@ -21617,7 +21617,7 @@ function predict(model, imgUrl) {
 const WebcamStream = props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   "div",
   { className: "webcam" },
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("video", { id: "webcam" }),
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("video", { accept: "image/*", capture: "camera", id: "webcam" }),
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     "div",
     { className: "button" },
