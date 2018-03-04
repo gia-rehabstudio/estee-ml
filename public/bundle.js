@@ -21367,7 +21367,7 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      { className: 'capture' },
+      { className: 'capture', id: 'capture' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'p',
         { className: 'subtitle' },
@@ -21377,13 +21377,13 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('canvas', { id: 'canvas', hidden: true }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { className: 'output' },
+        { className: 'output col-sm-6' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'photo', alt: 'Your photo', width: '400' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'button',
           { id: 'take-again', onClick: this.handleOutputClick },
           '\uD83D\uDCF7'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { id: 'photo', alt: 'Your photo', width: '400' })
+        )
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'h2',
@@ -21533,60 +21533,68 @@ function predict(model, imgUrl) {
     } else if (bestMatch == "human face" && bestValue > 0.6) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { id: 'myProgress' },
+        { className: 'product-description' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { id: 'myBar', style: { width: bestValue * 500 } },
+          { id: 'myProgress' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'span',
-            null,
-            Math.round(bestValue * 100),
-            '% match'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h3',
-            { className: 'product-description--title' },
-            'What a lovely human face!'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'p',
-            { className: 'product-description--p' },
-            '  Make it look as radiant as possible with Est\xE9e Lauder\'s magic. '
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'a',
-            {
-              className: 'night-repair product-cta',
-              href: 'https://www.esteelauder.co.uk/product/681/26959/product-catalog/skincare/advanced-night-repair/synchronized-recovery-complex-ii' },
-            'FIND OUT MORE'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'a',
-            {
-              className: 'assistant product-cta',
-              href: 'https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam' },
-            'GOOGLE ASSISTANT'
+            'div',
+            { id: 'myBar', style: { width: bestValue * 500 } },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'span',
+              null,
+              Math.round(bestValue * 100),
+              '% match'
+            )
           )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h3',
+          { className: 'product-description--title' },
+          'What a lovely human face!'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          { className: 'product-description--p' },
+          '  Make it look as radiant as possible with Est\xE9e Lauder\'s magic. '
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'a',
+          {
+            className: 'night-repair product-cta',
+            href: 'https://www.esteelauder.co.uk/product/681/26959/product-catalog/skincare/advanced-night-repair/synchronized-recovery-complex-ii' },
+          'FIND OUT MORE'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'a',
+          {
+            className: 'assistant product-cta',
+            href: 'https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam' },
+          'GOOGLE ASSISTANT'
         )
       );
     } else if (bestMatch == "human face" && bestValue < 0.6) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { id: 'myProgress' },
+        { className: 'product-description' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { id: 'myBar', style: { width: bestValue * 500 } },
+          { id: 'myProgress' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'span',
-            null,
-            Math.round(bestValue * 100),
-            '% match'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h3',
-            { className: 'product-description--title' },
-            'You look a bit blurry today'
+            'div',
+            { id: 'myBar', style: { width: bestValue * 500 } },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'span',
+              null,
+              Math.round(bestValue * 100),
+              '% match'
+            )
           )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h3',
+          { className: 'product-description--title' },
+          'You look a bit blurry today'
         )
       );
     } else {
@@ -21616,7 +21624,7 @@ const WebcamStream = props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.crea
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       "button",
       { id: "captureButton", onClick: props.handleCaptureClick },
-      "\u2714"
+      "\uD83D\uDCF8"
     )
   )
 );

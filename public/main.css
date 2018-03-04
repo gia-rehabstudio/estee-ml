@@ -38,21 +38,29 @@ a.product-cta {
 }
 #captureButton {
     border-radius: 50%;
-    padding: 0.5rem 0.8rem;
-    background-color: lightgreen;
+    padding: 0.2rem 0.5rem;
+    background-color: #FFFFFF;
     color: white;
     margin: 1rem 0;
     font-size: 2rem;
     outline: none;
+    position: absolute;
+    top: 55%;
+    left: 44%;
+    cursor: pointer;
 }
 #take-again {
     border-radius: 50%;
-    padding: 0.5rem 0.8rem;
-    background-color: lightgreen;
+    padding: 0.2rem 0.5rem;
+    background-color: #FFFFFF;
     color: white;
     margin: 1rem 0;
     font-size: 2rem;
     outline: none;
+    position: absolute;
+    top: 55%;
+    left: 44%;
+    cursor: pointer;
 }
 
 .button {
@@ -105,13 +113,13 @@ width: 0;
         max-width: 25rem;
     }
     #photo {
-        /* float: right; */
+        display: inline-block;
+        float: left;
     }
     #webcam {
         position: relative;
     }
     #captureButton {
-        position: relative;
         top:30%;
         right:25%;
         z-index: 10;
@@ -123,7 +131,8 @@ width: 0;
         z-index: 10;
     }
     .product-description {
-        display: block;
+        display: inline-block;
+        float: right;
     }
     .nav-button, a.product-cta, .product-description--title {
         font-size: 1.3rem;

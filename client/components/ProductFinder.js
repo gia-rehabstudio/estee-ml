@@ -101,13 +101,13 @@ class ProductFinder extends Component {
 
   render() {
     return (
-      <div className="capture" >
+      <div className="capture" id="capture">
         <p className="subtitle" >For the most accurate experience, use a solid white background.</p>
         <WebcamStream handleCaptureClick={this.handleCaptureClick} />
         <canvas id="canvas" hidden></canvas>
-        <div className="output">
-          <button id="take-again" onClick={this.handleOutputClick}>📷</button>
+        <div className="output col-sm-6">
           <img id="photo" alt="Your photo" width="400" />
+          <button id="take-again" onClick={this.handleOutputClick}>📷</button>
         </div>
         <h2> {this.state.bestMatch}</h2>
       </div>
@@ -169,7 +169,7 @@ function predict(model, imgUrl) {
               <div className="product-description">
                   <div id="myProgress">
                       <div id="myBar" style={{ width: (bestValue * 500)  }}>
-                      <span>{ Math.round(bestValue * 100)}% match</span>
+                        <span>{ Math.round(bestValue * 100)}% match</span>
                        </div>
                   </div>
                   <p className="product-description-stats">This product has a {bestValue} chance of being</p>
@@ -197,32 +197,36 @@ function predict(model, imgUrl) {
       }
       else if(bestMatch == "human face" && bestValue > 0.6){
         return (
-            <div id="myProgress">
-                <div id="myBar" style={{ width: (bestValue * 500)  }}>
-                    <span>{ Math.round(bestValue * 100)}% match</span>
-                    <h3 className="product-description--title">What a lovely human face!</h3>
-                    <p className="product-description--p">  Make it look as radiant as possible with Estée Lauder's magic. </p>
-                    <a
-                    className="night-repair product-cta"
-                    href="https://www.esteelauder.co.uk/product/681/26959/product-catalog/skincare/advanced-night-repair/synchronized-recovery-complex-ii">
-                    FIND OUT MORE
-                    </a>
-                    <a
-                    className="assistant product-cta"
-                    href="https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam">
-                     GOOGLE ASSISTANT
-                    </a>
+            <div className="product-description">
+                <div id="myProgress">
+                    <div id="myBar" style={{ width: (bestValue * 500)  }}>
+                        <span>{ Math.round(bestValue * 100)}% match</span>
+                    </div>
                 </div>
+                <h3 className="product-description--title">What a lovely human face!</h3>
+                <p className="product-description--p">  Make it look as radiant as possible with Estée Lauder's magic. </p>
+                <a
+                className="night-repair product-cta"
+                href="https://www.esteelauder.co.uk/product/681/26959/product-catalog/skincare/advanced-night-repair/synchronized-recovery-complex-ii">
+                FIND OUT MORE
+                </a>
+                <a
+                className="assistant product-cta"
+                href="https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam">
+                 GOOGLE ASSISTANT
+                </a>
             </div>
         )
     }
     else if(bestMatch == "human face" && bestValue < 0.6){
       return (
-          <div id="myProgress">
-              <div id="myBar" style={{ width: (bestValue * 500)  }}>
-                  <span>{ Math.round(bestValue * 100)}% match</span>
-                  <h3 className="product-description--title">You look a bit blurry today</h3>
+          <div className="product-description">
+              <div id="myProgress">
+                  <div id="myBar" style={{ width: (bestValue * 500)  }}>
+                      <span>{ Math.round(bestValue * 100)}% match</span>
+                  </div>
               </div>
+              <h3 className="product-description--title">You look a bit blurry today</h3>
           </div>
       )
   }
