@@ -21384,7 +21384,6 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 function onClick(cta) {
-  console.log("ggyjgh");
   cta = document.getElementById("captureButton");
   video.parentNode.replaceChild(photo, video);
   return;
@@ -21525,7 +21524,7 @@ function predict(model, imgUrl) {
           'GOOGLE ASSISTANT'
         )
       );
-    } else if (bestMatch == "human face") {
+    } else if (bestMatch == "human face" && bestValue > 0.6) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { id: 'myProgress' },
@@ -21537,6 +21536,50 @@ function predict(model, imgUrl) {
             null,
             Math.round(bestValue * 100),
             '% match'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h3',
+            { className: 'product-description--title' },
+            'What a lovely human face!'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            { className: 'product-description--p' },
+            '  Make it look as radiant as possible with Est\xE9e Lauder\'s magic. '
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'a',
+            {
+              className: 'night-repair product-cta',
+              href: 'https://www.esteelauder.co.uk/product/681/26959/product-catalog/skincare/advanced-night-repair/synchronized-recovery-complex-ii' },
+            'FIND OUT MORE'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'a',
+            {
+              className: 'assistant product-cta',
+              href: 'https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam' },
+            'GOOGLE ASSISTANT'
+          )
+        )
+      );
+    } else if (bestMatch == "human face" && bestValue < 0.6) {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { id: 'myProgress' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { id: 'myBar', style: { width: bestValue * 500 } },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            null,
+            Math.round(bestValue * 100),
+            '% match'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h3',
+            { className: 'product-description--title' },
+            'You look a bit blurry today'
           )
         )
       );
@@ -21544,13 +21587,6 @@ function predict(model, imgUrl) {
       return bestMatch;
     }
   });
-  // function changeWidth(){
-  //     console.log('grrr');
-  //     const bestValue = res.rawData.outputs[0].data.concepts[0].value;
-  //     const progress = document.getElementById("myBar");
-  //     progress.style.width = bestValue + 'rem';
-  //     return;
-  // }
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (ProductFinder);

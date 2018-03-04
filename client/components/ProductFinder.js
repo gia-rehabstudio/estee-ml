@@ -107,7 +107,6 @@ class ProductFinder extends Component {
 }
 
 function onClick(cta) {
-    console.log("ggyjgh");
     cta = document.getElementById("captureButton");
     video.parentNode.replaceChild(photo, video);
     return;
@@ -193,26 +192,41 @@ function predict(model, imgUrl) {
               </div>
           )
       }
-      else if(bestMatch == "human face"){
+      else if(bestMatch == "human face" && bestValue > 0.6){
         return (
             <div id="myProgress">
                 <div id="myBar" style={{ width: (bestValue * 500)  }}>
-                <span>{ Math.round(bestValue * 100)}% match</span>
-                 </div>
+                    <span>{ Math.round(bestValue * 100)}% match</span>
+                    <h3 className="product-description--title">What a lovely human face!</h3>
+                    <p className="product-description--p">  Make it look as radiant as possible with Estée Lauder's magic. </p>
+                    <a
+                    className="night-repair product-cta"
+                    href="https://www.esteelauder.co.uk/product/681/26959/product-catalog/skincare/advanced-night-repair/synchronized-recovery-complex-ii">
+                    FIND OUT MORE
+                    </a>
+                    <a
+                    className="assistant product-cta"
+                    href="https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam">
+                     GOOGLE ASSISTANT
+                    </a>
+                </div>
             </div>
         )
     }
+    else if(bestMatch == "human face" && bestValue < 0.6){
+      return (
+          <div id="myProgress">
+              <div id="myBar" style={{ width: (bestValue * 500)  }}>
+                  <span>{ Math.round(bestValue * 100)}% match</span>
+                  <h3 className="product-description--title">You look a bit blurry today</h3>
+              </div>
+          </div>
+      )
+  }
      else {
         return bestMatch
     }
 })
-// function changeWidth(){
-//     console.log('grrr');
-//     const bestValue = res.rawData.outputs[0].data.concepts[0].value;
-//     const progress = document.getElementById("myBar");
-//     progress.style.width = bestValue + 'rem';
-//     return;
-// }
 }
 
 export default ProductFinder;
