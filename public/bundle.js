@@ -21303,10 +21303,10 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     getUserMedia(camSpecs).then(stream => {
 
       const video = document.getElementById('webcam');
-      console.log(video);
+
       const vendorURL = window.URL || window.webkitURL;
 
-      video.src = vendorURL.createObjectURL(stream);
+      video.srcObject = stream;
       video.play();
     }).catch(err => {
       console.log(err);
@@ -21322,11 +21322,13 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
           photo = document.getElementById('photo'),
           { width, height } = this.state.camSpecs.video;
 
-    canvas.width = width;
-    canvas.height = height;
-    context.drawImage(video, 0, 0, width, height);
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    context.drawImage(video, 0, 0);
 
     const imgData = canvas.toDataURL('image/png');
+
     const rawImgData = canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, '');
     photo.setAttribute('src', imgData);
 
@@ -21618,7 +21620,7 @@ function predict(model, imgUrl) {
 const WebcamStream = props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   "div",
   { className: "webcam" },
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("video", { accept: "image/*", capture: "camera", id: "webcam" }),
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("video", { accept: "image/*", capture: "camera", autoPlay: "true", id: "webcam", playsInline: "true" }),
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     "div",
     { className: "button" },

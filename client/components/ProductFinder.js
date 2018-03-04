@@ -34,11 +34,12 @@ class ProductFinder extends Component {
       .then((stream) => {
 
         const video = document.getElementById('webcam');
-        console.log(video);
+
         const vendorURL = window.URL || window.webkitURL;
 
-        video.src = vendorURL.createObjectURL(stream);
+        video.srcObject = stream;
         video.play();
+
       })
       .catch((err) => {
         console.log(err);
@@ -54,13 +55,16 @@ class ProductFinder extends Component {
           photo = document.getElementById('photo'),
           { width, height } = this.state.camSpecs.video;
 
-    canvas.width = width;
-    canvas.height = height;
-    context.drawImage(video, 0, 0, width, height);
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    context.drawImage(video, 0, 0);
 
     const imgData = canvas.toDataURL('image/png')
+
     const rawImgData = canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, '');
     photo.setAttribute('src', imgData);
+
 
     predict('estee', rawImgData)
       .then(bestMatch => this.setState({
