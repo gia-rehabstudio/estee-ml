@@ -7,7 +7,7 @@ class ProductFinder extends Component {
     super(props)
 
     this.state = {
-      camSpecs: { audio: false, video: { width: 400, height: 400 } },
+      camSpecs: { audio: false, video: {} },
       bestMatch: null,
       bestValue: null
     }
@@ -25,19 +25,6 @@ class ProductFinder extends Component {
         navigator.getMedia = navigator.getUserMedia ||
                              navigator.webkitGetUserMedia ||
                              navigator.mozGetUserMedia ||
-                             navigator.mediaDevices.getUserMedia({
-                                  video: {
-                                    facingMode: 'environment',
-                                    height: {
-                                      ideal: 1920
-                                    },
-                                    width: {
-                                      ideal: 1080
-                                    },
-                                    aspectRatio: 0.5625,
-                                  },
-                                  audio: false,
-                                })
                              navigator.msGetUserMedia;
         navigator.getMedia.call(navigator, specs, successCb, errorCb);
       })
@@ -132,6 +119,7 @@ function getCamDimensions() {
 // Have to calculate the dimensions for the canvas based on the videos natural dimensions, not its output dimensions.
   canvas.setAttribute('height', webcam.videoHeight);
   canvas.setAttribute('width', webcam.videoWidth);
+
   return;
 }
 

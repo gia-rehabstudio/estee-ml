@@ -21282,7 +21282,7 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     super(props);
 
     this.state = {
-      camSpecs: { audio: false, video: { width: 400, height: 400 } },
+      camSpecs: { audio: false, video: {} },
       bestMatch: null,
       bestValue: null
     };
@@ -21296,20 +21296,7 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   componentDidMount() {
     const camSpecs = this.state.camSpecs;
     const getUserMedia = specs => new Promise((successCb, errorCb) => {
-      navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: 'environment',
-          height: {
-            ideal: 1920
-          },
-          width: {
-            ideal: 1080
-          },
-          aspectRatio: 0.5625
-        },
-        audio: false
-      });
-      navigator.msGetUserMedia;
+      navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
       navigator.getMedia.call(navigator, specs, successCb, errorCb);
     });
 
@@ -21412,6 +21399,7 @@ function getCamDimensions() {
   // Have to calculate the dimensions for the canvas based on the videos natural dimensions, not its output dimensions.
   canvas.setAttribute('height', webcam.videoHeight);
   canvas.setAttribute('width', webcam.videoWidth);
+
   return;
 }
 
