@@ -45,7 +45,7 @@ a.product-cta {
     font-size: 2rem;
     outline: none;
     position: absolute;
-    top: 55%;
+    top: 45%;
     left: 44%;
     cursor: pointer;
 }
@@ -58,7 +58,7 @@ a.product-cta {
     font-size: 2rem;
     outline: none;
     position: absolute;
-    top: 55%;
+    top: 45%;
     left: 44%;
     cursor: pointer;
 }
@@ -120,7 +120,7 @@ width: 0;
         position: relative;
     }
     #captureButton {
-        top:65%;
+        top:53%;
         right:25%;
         left: 15%;
         z-index: 10;
