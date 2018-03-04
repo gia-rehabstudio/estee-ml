@@ -195,7 +195,7 @@ function predict(model, imgUrl) {
               </div>
           )
       }
-      else if(bestMatch == "human face" && bestValue > 0.3){
+      else if(bestMatch == "human face" && bestValue > 0.5){
         return (
             <div className="product-description">
                 <div id="myProgress">

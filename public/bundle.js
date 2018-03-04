@@ -21530,7 +21530,7 @@ function predict(model, imgUrl) {
           'GOOGLE ASSISTANT'
         )
       );
-    } else if (bestMatch == "human face" && bestValue > 0.3) {
+    } else if (bestMatch == "human face" && bestValue > 0.5) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'product-description' },
