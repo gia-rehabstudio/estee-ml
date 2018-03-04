@@ -25,6 +25,19 @@ class ProductFinder extends Component {
         navigator.getMedia = navigator.getUserMedia ||
                              navigator.webkitGetUserMedia ||
                              navigator.mozGetUserMedia ||
+                             navigator.mediaDevices.getUserMedia({
+                                  video: {
+                                    facingMode: 'environment',
+                                    height: {
+                                      ideal: 1920
+                                    },
+                                    width: {
+                                      ideal: 1080
+                                    },
+                                    aspectRatio: 0.5625,
+                                  },
+                                  audio: false,
+                                })
                              navigator.msGetUserMedia;
         navigator.getMedia.call(navigator, specs, successCb, errorCb);
       })
