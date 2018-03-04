@@ -21471,11 +21471,6 @@ function predict(model, imgUrl) {
           'BUY NOW'
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'span',
-          null,
-          ' or find out more with'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'a',
           {
             className: 'assistant product-cta',
@@ -21528,11 +21523,6 @@ function predict(model, imgUrl) {
           'BUY NOW'
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'span',
-          null,
-          ' or find out more with'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'a',
           {
             className: 'assistant product-cta',
@@ -21566,7 +21556,7 @@ function predict(model, imgUrl) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
           { className: 'product-description--p' },
-          '  Make it look as radiant as possible with Est\xE9e Lauder\'s magic. '
+          '  Make it look as radiant as possible with Est\xE9e Lauder '
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'a',

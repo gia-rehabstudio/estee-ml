@@ -163,7 +163,6 @@ function predict(model, imgUrl) {
                   href="https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam">
                   BUY NOW
                   </a>
-                  <span> or find out more with</span>
                   <a
                   className="assistant product-cta"
                   href="https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam">
@@ -193,7 +192,6 @@ function predict(model, imgUrl) {
                   href="https://www.esteelauder.co.uk/product/681/26959/product-catalog/skincare/advanced-night-repair/synchronized-recovery-complex-ii">
                   BUY NOW
                   </a>
-                  <span> or find out more with</span>
                   <a
                   className="assistant product-cta"
                   href="https://www.esteelauder.co.uk/product/681/39367/product-catalog/skincare/advanced-night/micro-cleansing-foam">
@@ -211,7 +209,7 @@ function predict(model, imgUrl) {
                     </div>
                 </div>
                 <h3 className="product-description--title">What a lovely human face!</h3>
-                <p className="product-description--p">  Make it look as radiant as possible with Estée Lauder's magic. </p>
+                <p className="product-description--p">  Make it look as radiant as possible with Estée Lauder </p>
                 <a
                 className="night-repair product-cta"
                 href="https://www.esteelauder.co.uk/product/681/26959/product-catalog/skincare/advanced-night-repair/synchronized-recovery-complex-ii">
