@@ -7,7 +7,7 @@ class ProductFinder extends Component {
     super(props)
 
     this.state = {
-      camSpecs: { audio: false, video: {} },
+      camSpecs: { audio: false, video: { facingMode: "user" } },
       bestMatch: null,
       bestValue: null
     }
@@ -20,17 +20,19 @@ class ProductFinder extends Component {
 
   componentDidMount() {
     const camSpecs = this.state.camSpecs;
-    const getUserMedia = (specs) => (
-      new Promise((successCb, errorCb) => {
-        navigator.getMedia = navigator.getUserMedia ||
-                             navigator.webkitGetUserMedia ||
-                             navigator.mozGetUserMedia ||
-                             navigator.msGetUserMedia;
-        navigator.getMedia.call(navigator, specs, successCb, errorCb);
-      })
-    );
+    // const getUserMedia = (specs) => (
+    //   new Promise((successCb, errorCb) => {
+    //
+    //         navigator.getMedia = navigator.getUserMedia ||
+    //                              navigator.webkitGetUserMedia ||
+    //                              navigator.mozGetUserMedia ||
+    //                              navigator.msGetUserMedia;
+    //
+    //     navigator.getMedia.call(navigator, specs, successCb, errorCb);
+    //   })
+    // );
 
-    getUserMedia(camSpecs)
+    navigator.mediaDevices.getUserMedia(camSpecs)
       .then((stream) => {
 
         const video = document.getElementById('webcam');

@@ -21282,7 +21282,7 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     super(props);
 
     this.state = {
-      camSpecs: { audio: false, video: {} },
+      camSpecs: { audio: false, video: { facingMode: "user" } },
       bestMatch: null,
       bestValue: null
     };
@@ -21295,12 +21295,19 @@ class ProductFinder extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
   componentDidMount() {
     const camSpecs = this.state.camSpecs;
-    const getUserMedia = specs => new Promise((successCb, errorCb) => {
-      navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-      navigator.getMedia.call(navigator, specs, successCb, errorCb);
-    });
+    // const getUserMedia = (specs) => (
+    //   new Promise((successCb, errorCb) => {
+    //
+    //         navigator.getMedia = navigator.getUserMedia ||
+    //                              navigator.webkitGetUserMedia ||
+    //                              navigator.mozGetUserMedia ||
+    //                              navigator.msGetUserMedia;
+    //
+    //     navigator.getMedia.call(navigator, specs, successCb, errorCb);
+    //   })
+    // );
 
-    getUserMedia(camSpecs).then(stream => {
+    navigator.mediaDevices.getUserMedia(camSpecs).then(stream => {
 
       const video = document.getElementById('webcam');
 
@@ -21620,7 +21627,7 @@ function predict(model, imgUrl) {
 const WebcamStream = props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   "div",
   { className: "webcam" },
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("video", { accept: "image/*", capture: "camera", autoPlay: "true", id: "webcam", playsInline: "true" }),
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("video", { accept: "image/*", capture: "camera", id: "webcam", playsInline: "true" }),
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     "div",
     { className: "button" },
