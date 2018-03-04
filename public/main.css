@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+.nav-button {
+    outline: none;
+}
+.nav-button, a.product-cta {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    opacity: 0.7;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+.nav-button:hover, a.product-cta {
+    outline: none;
+}
+a.product-cta {
+    margin-bottom: 4rem;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 0.3rem;
+    border-radius: 5px;
+}
+.assistant {
+    margin-left: 1rem;
+}
+.nav-button:active,.nav-button:focus, .product-cta:focus, .product-cta:active {
+    border-bottom: 1px solid black;
+    opacity: 1;
+
+}
+.capture .subtitle {
+    font-style: italic;
+    font-size: 0.8rem;
+}
+#captureButton {
+    border-radius: 50%;
+    padding: 0.5rem 0.8rem;
+    background-color: lightgreen;
+    color: white;
+    margin: 1rem 0;
+    font-size: 2rem;
+    outline: none;
+}
+
+.button {
+margin: 0 auto;
+width: 0;
+}
+ #captureButton:hover, .product-cta:hover {
+    outline: none;
+    opacity: 0.7;
+}
+.my-collection img {
+    max-width: 7rem;
+    margin: 0.1rem;
+}
+
+.about {
+    padding: 0 0.5rem;
+    line-height: 2rem;
+}
+
+#webcam, #photo {
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.product-description{
+    padding: 0 0.5rem;
+}
+.product-description--title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+.product-description--p{
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+.product-description-stats {
+    font-weight: 300;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+@media only screen and (min-width: 788px) {
+    #webcam, #photo {
+        max-width: 25rem;
+    }
+    #photo {
+        /* float: right; */
+    }
+    #webcam {
+        position: relative;
+    }
+    #captureButton {
+        position: relative;
+        top:30%;
+        right:25%;
+        z-index: 10;
+    }
+    .product-description {
+        display: block;
+    }
+    .nav-button, a.product-cta, .product-description--title {
+        font-size: 1.3rem;
+    }
+    .capture .subtitle, .product-description--p {
+        font-size: 1.2rem;
+    }
+    #captureButton {
+        font-size: 3rem;
+    }
+}
+
+/* PROGRESS BARS */
+
+#myProgress {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+#myBar {
+    height: 25px;
+    background-color: lightgreen;
+    font-size: 0.7rem;
+}
+#myBar span{
+    color: gray;
+    font-size: 0.9rem;
+    padding: 1rem;
+    vertical-align: -webkit-baseline-middle;
+}
+.product-description span {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
