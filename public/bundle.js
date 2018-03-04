@@ -21624,7 +21624,11 @@ const WebcamStream = props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.crea
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       "button",
       { id: "captureButton", onClick: props.handleCaptureClick },
-      "\uD83D\uDCF8"
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "span",
+        { id: "flash-icon" },
+        "\uD83D\uDCF8"
+      )
     )
   )
 );
